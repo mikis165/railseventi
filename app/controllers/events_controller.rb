@@ -39,7 +39,13 @@ class EventsController < ApplicationController
          render "edit"
       end	
     end	
-
+  
+    def destroy
+      @event = Event.find(params[:id])
+      @event.destroy
+      flash[:alert] = "Event deleted successfully"
+      redirect_to events_url
+    end  
 
 
 	private
